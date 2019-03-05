@@ -10,11 +10,16 @@ import javax.persistence.Table;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "specialties")
 public class Speciality extends BaseEntity {
 
     @Column(name = "description")
     private String description;
+
+    @Builder
+    public Speciality(Long id, String description) {
+        super(id);
+        this.description = description;
+    }
 }

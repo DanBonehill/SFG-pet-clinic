@@ -100,6 +100,7 @@ class OwnerSDServiceTest {
     void delete() {
         service.delete(returnOwner);
 
+        assertEquals(new HashSet<>(), service.findAll());
         verify(ownerRepository, times(1)).delete(any());
     }
 
@@ -107,6 +108,7 @@ class OwnerSDServiceTest {
     void deleteById() {
         service.deleteById(1L);
 
+        assertEquals(new HashSet<>(), service.findAll());
         verify(ownerRepository, times(1)).deleteById(anyLong());
     }
 }
